@@ -1,0 +1,33 @@
+{% set title = post.post_title %}
+{% set content = post.post_content %}
+
+{% extends 'layout/base.twig' %}
+
+{% block headerNav %}
+
+	<section class="hero">
+		{% include '/components/hero_front.twig' %}
+	</section>
+{% endblock %}
+
+{% block main %}
+
+	<section class="lastest_news section container px-6">
+		{% include '/components/list_news.twig' with {posts: news, post:post} %}
+	</section>
+
+	<div class="animation_footer">
+		{% include '/components/svgs/' ~ random(1,10) ~ '.svg' %}
+	</div>
+	<section class="lastest_post section container-fluid">
+	<div class="container px-6">
+		{% include '/components/list_posts.twig' with {posts: posts, post:post} %}
+		</div>
+	</section>
+	<div class="animation_header_2">{% include '/components/svgs/' ~ random(1,10) ~ '.svg' %}</div>
+
+</div>
+
+<section class="lastest_recettes section container px-6">
+	{% include '/components/list_recettes.twig' with {posts: recettes, post:post} %}
+</section>{% endblock %}

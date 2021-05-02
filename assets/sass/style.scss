@@ -1,0 +1,25 @@
+
+// @import "~bootstrap/scss/bootstrap";
+// @import "~bootstrap/scss/bootstrap";
+
+$white : #f3e6ff;
+$white : #f8f1ff;
+
+@import 'general/variable';
+@import "~bulma/bulma";
+@import "~slick-carousel/slick/slick";
+@import "~slick-carousel/slick/slick-theme";
+
+
+@import 'general/font';
+@import 'general/base';
+@import 'general/reverted';
+@import 'general/btn';
+
+@import 'layout/hero';
+@import 'layout/card';
+@import 'layout/header';
+@import 'layout/footer';
+
+@import 'layout/single/news';
+@import 'layout/teaser/recettes';

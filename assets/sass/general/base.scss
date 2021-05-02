@@ -1,0 +1,51 @@
+body {
+    background-color:  $white  ;
+    color:  $white ;
+}
+
+section {
+    position: relative;
+    z-index: 2;
+    a {
+        color: inherit;
+    }
+    //padding: 3rem 3.5rem;
+}
+
+.is-size-8 {
+    font-size: 0.65rem !important;
+}
+
+.animation_footer {
+    height: 200px;
+    position: relative;
+    z-index: 1;
+    svg {
+        width: 100%;
+        height: 100%;
+        path {
+            fill:$recettes;
+        }
+    }
+}
+
+.lastest_post {
+    background-color:$recettes;
+    margin-top:-10px;
+    margin-bottom: -10px;
+}
+
+.animation_header_2 {
+    height: 200px;
+    position: relative;
+    z-index: 1;
+    transform-origin : center center;
+    transform: rotate(180deg);
+    svg {
+        width: 100%;
+        height: 100%;
+        path {
+            fill:$recettes;
+        }
+    }
+}

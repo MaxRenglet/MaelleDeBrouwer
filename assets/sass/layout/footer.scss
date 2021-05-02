@@ -1,0 +1,17 @@
+.footer {
+   padding:0px;
+background: transparent;
+margin-top: 150px;
+svg {
+    width: 100%;
+    path {
+        fill:$turquoise;
+    }
+}
+.content {
+    background: $turquoise;
+    padding:100px 20px;
+    //padding-bottom: 100px;
+    margin-top:-6px;
+}
+}

@@ -1,0 +1,41 @@
+{# <header class="bg_green">
+	<div class="container-fluid">
+		<nav class="navbar navbar-expand-lg p-0">
+			<div class="navbar-test">
+				<a class="navbar_h1" href="{{fn.home_url()}}">Maëlle<br>De Brouwer</a>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div id="main-nav" class="navbar-collapse justify-content-end collapse text-center" style="">
+				{{fn.menu_header('header')}}
+			</div>
+		</nav>
+		</div>
+	</header> #}
+
+{% set title = fn.get_bloginfo( 'name' ) %}
+
+
+<header>
+    <nav class="navbar is-primary">
+      <div class="container-fluid">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="{{fn.home_url()}}">
+           {{title}}
+          </a>
+          <span class="navbar-burger" data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          <div class="navbar-end">
+         {{fn.menu_header('header')}}
+          </div>
+        </div>
+      </div>
+    </nav>
+        
+</header>

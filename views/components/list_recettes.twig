@@ -1,0 +1,18 @@
+{% set index = fn.get_permalink(fn.get_option( 'page_for_recettes' )) %}
+
+<h1 class="title"><a href="{{index}}"><i class="fas fa-carrot"></i> Recettes Récentes</a></h1>
+<div class="columns">
+{% for post in posts %}
+
+{% set img = fn.get_the_post_thumbnail_url(post.ID, 'post-thumbnail') %}
+
+ <div class="column is-4-desktop is-6-tablet is-12-mobile">
+  <a href="{{fn.get_permalink(post.ID)}}">
+    {% include '/components/layout/card.twig' with {image: img, content:post.post_content, title:post.post_title} %} 
+    </a>
+  </div>
+{% endfor %}
+
+</div>
+
+{% include '/components/layout/btn.twig' with {link:index, label:'Voir plus..'} %}

@@ -1,0 +1,47 @@
+{% set site_name = fn.get_bloginfo() %}
+{% set site_desc = fn.get_bloginfo('description') %}
+{% set site_thumb = fn.home_url('/content/themes/minotaure-theme/dist/images/og-format.jpg')  %}
+{% set og_title = og_title|raw %}
+
+<!DOCTYPE html>
+
+<html lang="fr">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="manifest" href="{{fn.home_url()}}/manifest.json">
+    <meta name="theme-color" content="#1bc076">
+    <meta name="description" content="{{ site_desc }}">
+
+
+    {{ wp_head() }}
+
+
+    {% block schema %}{% endblock %}
+
+  </head>
+
+  <body {{ body_class() }}>
+
+    {# Main block #}
+      {% block headerNav %}
+
+        {{ include('layout/header/header.twig') }}
+        {% block navigation %}{% endblock %}
+
+      {% endblock %}
+      <div class="animation_header">{% include '/components/svgs/' ~ random(1,10) ~ '.svg' %}</div>
+
+      <main class="container-fluid">
+        {% block main %}{% endblock %}
+      </main>
+
+      {# End main block #}
+      {{ include('layout/footer/footer.twig') }}
+
+      {{ wp_footer() }}
+
+  </body>
+</html>

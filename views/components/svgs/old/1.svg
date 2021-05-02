@@ -1,0 +1,5 @@
+<svg preserveAspectRatio="none" id="visual" viewBox="0 0 500 500" width="500" height="500"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+    <path d="M0 308L27.8 301.7C55.7 295.3 111.3 282.7 166.8 266.7C222.3 250.7 277.7 231.3 333.2 232.3C388.7 233.3 444.3 254.7 472.2 265.3L500 276L500 501L472.2 501C444.3 501 388.7 501 333.2 501C277.7 501 222.3 501 166.8 501C111.3 501 55.7 501 27.8 501L0 501Z" fill="#0066FF" stroke-linecap="round" stroke-linejoin="miter"></path>
+</svg>

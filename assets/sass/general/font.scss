@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lusitana&family=Montserrat:wght@400;800;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@300;400;700&display=swap');
+$serif : 'IBM Plex Serif', serif;
+$s_serif: 'Montserrat', sans-serif;
+
+p, .subtitle {
+    font-family: $serif;
+    // line-height: 1.75rem;
+    // font-size: 1.2rem;
+}
+.dates {
+    font-family: $serif;
+}

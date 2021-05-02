@@ -1,0 +1,28 @@
+.hero.is-primary {
+    color: $white;
+    .title, .subtitle {
+        color: $white;
+    }
+}
+
+.navbar.is-primary .navbar-brand > .navbar-item, .navbar.is-primary .navbar-brand .navbar-link {
+    color: $white;
+}
+
+.navbar.is-primary .navbar-start > .navbar-item, .navbar.is-primary .navbar-start .navbar-link, .navbar.is-primary .navbar-end > .navbar-item, .navbar.is-primary .navbar-end .navbar-link {
+    color: $white;
+}
+
+.hero.is-medium .hero-body {
+    padding: 9rem 1.5rem;
+    padding-bottom: 12rem;
+}
+
+.hero {
+    .hero-head {
+        .columns {
+            width: 100%;
+            padding: 1.5rem 1.5rem;
+        }
+    }
+}

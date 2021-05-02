@@ -1,0 +1,36 @@
+{% set title = post.post_title %}
+{% set content = post.post_content %}
+
+{% extends 'layout/base.twig' %}
+
+{% block main %}
+<div class="container-xl">
+<h1>{{title}}</h1>
+
+<p>{{content|raw}}</p>
+</div>
+
+<div class="container-fluid">
+<h1>Related</h1>
+
+<div class="slick_control">
+  <div class="prevArrow">PREVIOUS</div>
+   <div class="nextArrow">NEXT</div>
+<div class="row related_slide">
+{% for post_related in related %}
+<div class="col-12">
+ <a href="{{fn.get_permalink(post_related.ID)}}">
+    <div class="card">
+     <img class="card-img-top" src="{{fn.get_the_post_thumbnail_url(post_related.ID, 'post-thumbnail')}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{post_related.post_title}}</h5>
+        <p class="card-text">{{fn.wp_trim_words(post_related.post_content, 22, '...')|raw}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    </a>
+  </div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}

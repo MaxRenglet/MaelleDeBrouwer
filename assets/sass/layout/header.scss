@@ -1,0 +1,29 @@
+.hero-body {
+    position: relative;
+
+    .bg_hero {
+        position: absolute;
+        filter: grayscale(1);
+        opacity: 0.5;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left:0px;
+    }
+}
+
+.animation_header {
+    position: relative;
+    z-index:1;
+    transform-origin : center center;
+    transform: rotate(180deg);
+    // margin-bottom: -150px;
+    margin-top:-10px;
+    margin-bottom: -500px;
+    svg {
+        width: 100%;
+        path {
+            fill:$turquoise;
+        }
+    }
+}

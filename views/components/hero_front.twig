@@ -1,0 +1,51 @@
+{% set hero = fn.get_field('hero',post.ID) %}
+{% set image = hero.image.sizes.large %}
+{% set description = hero.description %}
+{% set title = fn.get_bloginfo( 'name' ) %}
+
+<section
+	class="hero is-primary is-medium">
+	<!-- Hero head: will stick at the top -->
+	<div class="hero-head">
+		<nav class="navbar">
+			<div class="columns is-justify-content-space-between">
+				<div class="navbar-brand">
+					<a class="navbar-item" href="{{fn.home_url()}}">
+						{{title}}
+					</a>
+					<span class="navbar-burger" data-target="navbarMenuHeroA">
+						<span></span>
+						<span></span>
+						<span></span>
+					</span>
+				</div>
+				<div id="navbarMenuHeroA" class="navbar-menu">
+					<div class="navbar-end">
+						{{fn.menu_header('header')}}
+					</div>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+	<!-- Hero content: will be in the middle -->
+	<div
+		class="hero-body">
+		{# <div class="bg_hero" style="background-image:url('{{image}}'); background-size:cover; background-position:center center;">
+		  </div> #}
+		<div class="container has-text-centered mb-6">
+    <div class="columns is-centered mb-6">
+			<div class="column is-6-widescreen is-6-desktop">
+				<div class="title is-1 is-dark mb-6">
+					{{title}}
+				</div>
+				<div class="subtitle">
+					{{description|raw}}
+				</div>
+			</div>
+		</div>
+    </div>
+	</div>
+	<!-- Hero footer: will stick at the bottom -->
+
+</section>
