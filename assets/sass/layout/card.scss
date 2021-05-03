@@ -3,21 +3,27 @@
     height: 100%;
     background-color: white;
     overflow: hidden;
+
     .title {
         transition: all 0.3s ease;
     }
+
     &:hover {
         color: $turquoise;
+
         .title {
             color: $turquoise;
             transition: all 0.3s ease;
         }
+
         transition: all 0.3s ease;
     }
+
     .card-content {
         position: relative;
         z-index: 4;
     }
+
     &__bg {
         position: absolute;
         bottom: 0px;
@@ -26,17 +32,41 @@
         height: 100%;
         z-index: 1;
         overflow: hidden;
-       svg {
-           width: 101%;
-           position: absolute;
-           bottom: 0px;
-           height: 0px;
-           transition: height 0.3s ease;
-           path {
-               fill:darken($white,0.3%);
-           }
-       }
+
+        svg {
+            width: 101%;
+            position: absolute;
+            bottom: 0px;
+            height: 0px;
+            transition: height 0.3s ease;
+
+            path {
+                fill: darken($white, 0.3%);
+            }
+        }
     }
+
+    .tags {
+        display: flex;
+        justify-content: flex-end;
+
+        li {
+            border-radius: 5px;
+            margin: 5px;
+            border: 1px solid lighten($black, 90);
+            font-size: 13px;
+            list-style: none;
+            padding: 5px 10px;
+        }
+    }
+
+    .cats {
+        margin-top: 20px;
+        span {
+            margin-right: 10px;
+        }
+    }
+
     &:hover {
         .card__bg {
             svg {
@@ -44,5 +74,18 @@
                 transition: height 0.5s ease;
             }
         }
+
+        
+
+        .tags li {
+            border: 1px solid $turquoise;
+        }
+
+        .cats li {
+            border: 1px solid $turquoise;
+            background-color: $white;
+        }
+
     }
+
 }

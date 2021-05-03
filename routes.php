@@ -13,7 +13,7 @@ Route::any('/', function ($post) {
 
     $args = array(
         'post_type'         => 'post',
-        'numberposts'      => 3,
+        'numberposts'      => 5,
         'orderby'          => 'post_date',
         'order'            => 'DESC',
     );
@@ -21,7 +21,7 @@ Route::any('/', function ($post) {
 
     $args = array(
         'post_type'         => 'news',
-        'numberposts'      => 3,
+        'numberposts'      => 5,
         'orderby'          => 'post_date',
         'order'            => 'DESC',
     );
@@ -29,7 +29,7 @@ Route::any('/', function ($post) {
 
     $args = array(
         'post_type'         => 'recettes',
-        'numberposts'      => 3,
+        'numberposts'      => 6,
         'orderby'          => 'post_date',
         'order'            => 'DESC',
     );

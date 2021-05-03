@@ -1,7 +1,4 @@
-{% set hero = fn.get_field('hero',post.ID) %}
-{% set image = hero.image.sizes.large %}
-{% set description = hero.description %}
-{% set title = fn.get_bloginfo( 'name' ) %}
+{% set blog_title = fn.get_bloginfo( 'name' ) %}
 
 <section
 	class="hero is-primary is-medium">
@@ -11,7 +8,7 @@
 			<div class="columns is-justify-content-space-between">
 				<div class="navbar-brand">
 					<a class="navbar-item" href="{{fn.home_url()}}">
-						{{title}}
+						{{blog_title}}
 					</a>
 					<span class="navbar-burger" data-target="navbarMenuHeroA">
 						<span></span>
@@ -32,20 +29,46 @@
 	<div
 		class="hero-body">
 		{# <div class="bg_hero" style="background-image:url('{{image}}'); background-size:cover; background-position:center center;">
-		  </div> #}
+						  </div> #}
 		<div class="container has-text-centered mb-6">
-    <div class="columns is-centered mb-6">
-			<div class="column is-6-widescreen is-6-desktop">
-				<div class="title is-1 is-dark mb-6">
-					{{title}}
-				</div>
-				<div class="subtitle">
-					{{description|raw}}
+				{% if date_display %}
+					<div class="date">
+					<time datetime="{{date_datetime}}">{{date_display}}</time>
+					</div>
+					{% endif %}
+			<div class="columns is-centered mb-6">
+				<div class="column is-6-widescreen is-6-desktop">
+					
+					{% if cats %}
+						<div class="cats">
+							{% for cat in cats %}
+								#{{cat.name}}
+							{% endfor %}
+						</div>
+					{% endif %}
+					<div class="title is-1 is-dark">
+						{{title}}
+					</div>
+					{% if description %}
+						<div class="subtitle">
+							{{description|raw}}
+						</div>
+					{% endif %}
+
+		
+					{% if tags %}
+						<div class="tags">
+							{% for tag in tags %}
+								{{tag.name}}
+							{% endfor %}
+						</div>
+					{% endif %}
+
 				</div>
 			</div>
 		</div>
-    </div>
 	</div>
 	<!-- Hero footer: will stick at the bottom -->
 
 </section>
+<div class="animation_header">{% include '/components/svgs/' ~ random(1,10) ~ '.svg' %}</div>

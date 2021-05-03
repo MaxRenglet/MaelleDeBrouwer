@@ -13351,9 +13351,40 @@ section .columns {
   fill: #f7efff;
 }
 
+.card .tags {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card .tags li {
+  border-radius: 5px;
+  margin: 5px;
+  border: 1px solid #e6e6e6;
+  font-size: 13px;
+  list-style: none;
+  padding: 5px 10px;
+}
+
+.card .cats {
+  margin-top: 20px;
+}
+
+.card .cats span {
+  margin-right: 10px;
+}
+
 .card:hover .card__bg svg {
   height: 80%;
   transition: height 0.5s ease;
+}
+
+.card:hover .tags li {
+  border: 1px solid #00d1b2;
+}
+
+.card:hover .cats li {
+  border: 1px solid #00d1b2;
+  background-color: #f8f1ff;
 }
 
 .hero-body {
@@ -13390,7 +13421,7 @@ section .columns {
 .footer {
   padding: 0px;
   background: transparent;
-  margin-top: 150px;
+  padding-top: 100px;
 }
 
 .footer svg {
@@ -13474,6 +13505,11 @@ section .columns {
   color: #00d1b2 !important;
 }
 
+.single .container-fluid,
+.single .footer {
+  background-color: #f8f1ff;
+}
+
 .single .animation_header {
   margin-top: -50px;
 }
@@ -13481,13 +13517,28 @@ section .columns {
 .single .container.single {
   position: relative;
   z-index: 50;
-  margin-top: 250px !important;
+  margin-top: 50px !important;
   color: black;
+  font-size: 1.5rem;
+  line-height: 2.8rem;
 }
 
-.single .container.single p {
-  font-size: 1.2rem;
-  line-height: 2rem;
+.single .column {
+  padding: 70px;
+}
+
+.single .tags {
+  display: block;
+  text-align: center;
+}
+
+.single .date {
+  text-align: right;
+  margin-bottom: 50px;
+}
+
+.single img {
+  width: 100%;
 }
 
 .container-xl {

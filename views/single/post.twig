@@ -3,14 +3,23 @@
 {% set date_display = fn.get_the_date('d F Y', post.ID) %}
 {% set date_datetime =  fn.get_the_date('Y-m-d', post.ID) %}
 
-{% extends 'layout/base.twig' %}
+{% set tags = fn.get_the_tags(post.ID) %}
+{% set cats = fn.get_the_category(post.ID) %}
 
+{% extends 'layout/base.twig' %}
+{% block headerNav %}
+
+	<section class="hero">
+		{% include '/components/hero_front.twig' %}
+	</section>
+{% endblock %}
 {% block main %}
-	<div class="container single mt-5 pt-5">
-		<div class="columns">
-		<div class="infos"><time datetime="{{date_datetime}}">Publié le {{date_display}}</time></div>
-		</div>
-		<h1 class="title">{{title}}</h1>
+
+	<div class="container single">
+		<div class="columns is-centered">
+			<div class="column box is-10-desktop is-shadowless is-12-tablet is-12-mobile">
 		<p>{{content|raw|nl2br}}</p>
+		</div>
+	</div>
 	</div>
 {% endblock %}

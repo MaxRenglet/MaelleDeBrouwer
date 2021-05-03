@@ -1,17 +1,34 @@
 .single {
+    .container-fluid, .footer {background-color: $white;}
     .animation_header {
         margin-top: -50px;
     }
+  
     .container.single {
         position: relative;
         z-index: 50;
-        margin-top: 250px !important;
+        margin-top: 50px !important;
         color: $black;
-        p {
-            font-size: 1.2rem;
-            line-height: 2rem;
-        }
+       
+            font-size: 1.5rem;
+            line-height: 2.8rem;
+    
+        
+    }
+    .column {
+        padding: 70px;
     }
 
+    .tags {
+        display: block;
+        text-align: center;
+    }
+    .date {
+        text-align: right;
+        margin-bottom: 50px;
+    }
+    img {
+        width: 100%;
+    }
 }
 
