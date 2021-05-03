@@ -53,9 +53,7 @@
 						<div class="subtitle">
 							{{description|raw}}
 						</div>
-					{% endif %}
-
-		
+					{% endif %}		
 					{% if tags %}
 						<div class="tags">
 							{% for tag in tags %}
@@ -64,6 +62,12 @@
 						</div>
 					{% endif %}
 
+					{% if reading_time %}
+					<div class="reading_time">
+					{{reading_time}}
+					</div>
+					{% endif %}
+					
 				</div>
 			</div>
 		</div>

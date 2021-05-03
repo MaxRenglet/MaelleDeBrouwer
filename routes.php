@@ -87,8 +87,18 @@ Route::any('single', function ($post) {
 
     $cpt = $post->post_type;
 
+    $args = array(
+        'post_type'         => 'post',
+        'numberposts'      => 6,
+        'orderby'          => 'post_date',
+        'order'            => 'DESC',
+        'post__not_in' => array($post->ID)
+    );
+    $lastest_post = get_posts($args);
+
     return view('single.' . $cpt, [
-        'post' => $post
+        'post' => $post,
+        'posts' => $lastest_post
     ]);
 });
 

@@ -5,6 +5,8 @@
 
 {% set tags = fn.get_the_tags(post.ID) %}
 {% set cats = fn.get_the_category(post.ID) %}
+{% set reading_time = fn.reading_time(content) %}
+{% set image = fn.get_the_post_thumbnail_url(post.ID, 'post-thumbnail') %}
 
 {% extends 'layout/base.twig' %}
 {% block headerNav %}
@@ -15,11 +17,45 @@
 {% endblock %}
 {% block main %}
 
+
 	<div class="container single">
+
 		<div class="columns is-centered">
-			<div class="column box is-10-desktop is-shadowless is-12-tablet is-12-mobile">
-		<p>{{content|raw|nl2br}}</p>
-		</div>
-	</div>
+			<div class="single box column is-8-widescreen is-12-tablet">
+				{% if image %}
+					<div class="box-image">
+						<figure class="image is-4by3">
+							<img src="{{image}}" alt="Placeholder image">
+						</figure>
+					</div>
+				{% endif %}
+				<div class="box-content">
+					<p>{{content|raw|nl2br}}</p>
+				</div>
+
+				<div class="box__bg">
+		{% include '/components/svgs/' ~ random(1,10) ~ '.svg' %}</div>
+</div>
+			</div>
+			
+
+		<section class="related">
+			<h1>Lastest Posts</h1>
+			<div class="columns cards is-multiline">
+
+				{% for key, post in posts %}
+					{% set column = "is-4-widescreen is-6-desktop is-6-tablet is-12-mobile" %}
+					{% set img = fn.get_the_post_thumbnail_url(post.ID, 'post-thumbnail') %}
+					{% set tags = fn.get_the_tags(post.ID) %}
+					{% set cats = fn.get_the_category(post.ID) %}
+					<div class="column {{column}}">
+						<a href="{{fn.get_permalink(post.ID)}}">
+							{% include '/components/layout/card.twig' with {cats:cats, tags:tags,post:post, image: img, content:post.post_content, title:post.post_title, date:true} %}
+						</a>
+					</div>
+				{% endfor %}
+
+			</div>
+		</section>
 	</div>
 {% endblock %}
