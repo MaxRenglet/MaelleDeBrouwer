@@ -2,6 +2,7 @@
 
 use Themosis\Support\Facades\Action;
 use Themosis\Support\Facades\Filter;
+use Bikubi\WPBulmaNavbarWalker;
 
 /**
  * Adds custom classes to the array of body classes.
@@ -45,7 +46,7 @@ Action::add('after_setup_theme', function () {
  * Disable Gutenberg
  * 
  */
-add_filter('use_block_editor_for_post', '__return_false', 10);
+// add_filter('use_block_editor_for_post', '__return_false', 10);
 
 function menu_header($location){
 
@@ -56,9 +57,11 @@ function menu_header($location){
         'container'		=>	'',
         'menu_class'		=>	'',
         'items_wrap'		=>	'%3$s',
-        'walker'		=>	new Bulma_NavWalker(),
+        'walker'		=>	new Bulma_Navwalker(),
         'fallback_cb'		=>	'Bulma_NavWalker::fallback'
     ) );
 
     return $menu;
 }
+
+add_filter('the_content', 'wpautop');

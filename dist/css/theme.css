@@ -13176,6 +13176,10 @@ section a {
   color: inherit;
 }
 
+section .columns {
+  margin-top: 20px;
+}
+
 .is-size-8 {
   font-size: 0.65rem !important;
 }
@@ -13296,7 +13300,7 @@ section a {
 
 .hero .hero-head .columns {
   width: 100%;
-  padding: 1.5rem 1.5rem;
+  padding: 0rem 1.5rem;
 }
 
 .card {
@@ -13401,6 +13405,89 @@ section a {
   background: #00d1b2;
   padding: 100px 20px;
   margin-top: -6px;
+}
+
+.navbar .columns {
+  width: 100%;
+}
+
+.navbar .navbar-end a {
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+  background: transparent;
+  padding: 1rem 2rem;
+  font-weight: bold;
+}
+
+.navbar .navbar-end a:hover {
+  color: #00d1b2;
+  box-shadow: 0 0.5em 1em -0.125em rgba(0, 0, 0, 0.1), 0 0px 0 1px rgba(0, 0, 0, 0.02);
+}
+
+.navbar .navbar-end a:hover .bg_svg {
+  height: 600%;
+  transition: height 0.5s ease;
+}
+
+.navbar .navbar-end a .bg_svg {
+  width: 100%;
+  height: 0%;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  transition: height 0.5s ease;
+  z-index: -1;
+}
+
+.navbar .navbar-end a .bg_svg svg {
+  width: 100%;
+  height: 100%;
+}
+
+.navbar .navbar-end a .bg_svg svg path {
+  fill: #f8f1ff;
+}
+
+.navbar .navbar-end a.navbar-item {
+  position: relative;
+  border-radius: 5px;
+  margin-left: 20px;
+  background: transparent;
+}
+
+.navbar .navbar-end a.navbar-item.is-active {
+  background: transparent;
+  box-shadow: 0 0.5em 1em -0.125em rgba(0, 0, 0, 0.1), 0 0px 0 1px rgba(0, 0, 0, 0.02);
+}
+
+.navbar .navbar-end a.navbar-item.is-active .bg_svg {
+  height: 30%;
+}
+
+.navbar .navbar-end a.navbar-item.is-active:hover .bg_svg {
+  height: 500%;
+}
+
+.navbar .navbar-end a.navbar-item:hover {
+  background: transparent;
+  color: #00d1b2 !important;
+}
+
+.single .animation_header {
+  margin-top: -50px;
+}
+
+.single .container.single {
+  position: relative;
+  z-index: 50;
+  margin-top: 250px !important;
+  color: black;
+}
+
+.single .container.single p {
+  font-size: 1.2rem;
+  line-height: 2rem;
 }
 
 .container-xl {

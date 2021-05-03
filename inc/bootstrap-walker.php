@@ -124,7 +124,10 @@
 					else {
 						$item_output = '<hr class="navbar-divider">';//output navbar divider
 					}
+
 				$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+				$svg = file_get_contents(get_stylesheet_directory()."/views/components/svgs/".random_int(1, 10).".svg");
+				$output .= "<div class='bg_svg'>".$svg."</div>";
 			}
 
 			else {//if does have children

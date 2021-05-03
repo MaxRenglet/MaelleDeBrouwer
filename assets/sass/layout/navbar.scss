@@ -1,0 +1,100 @@
+.navbar {
+
+    .columns {
+        width: 100%;
+    }
+    .navbar-end {
+
+        a {
+
+            position: relative;
+            overflow: hidden;
+            z-index: 5;
+            background: transparent;
+            padding:1rem 2rem;
+            font-weight: bold;
+            &:hover {
+                color:$turquoise;
+                box-shadow: 0 0.5em 1em -0.125em rgba(0, 0, 0, 0.1), 0 0px 0 1px rgba(0, 0, 0, 0.02);
+                .bg_svg {
+                    height: 600%;
+                    transition: height 0.5s ease;
+                }
+            }
+
+            .bg_svg {
+                width: 100%;
+                height: 0%;
+                position: absolute;
+                left: 0px;
+                bottom: 0px;
+                transition: height 0.5s ease;
+                z-index: -1;
+
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    path {
+                        fill:$white;
+                    }
+                }
+            }
+
+
+
+            &.navbar-item {
+                position: relative;
+                //border: 1px solid rgba(white, 0.2);
+                border-radius: 5px;
+                margin-left: 20px;
+
+                // &::after {
+                //     content: '';
+                //     width: 0%;
+                //     bottom: 0px;
+                //     left: 0px;
+                //     height: 1px;
+                //     position: absolute;
+                //     background: $white;
+                //     transition: width 0.3s ease;
+                // }
+
+                &.is-active {
+                    background: transparent;
+                    box-shadow: 0 0.5em 1em -0.125em rgba(0, 0, 0, 0.1), 0 0px 0 1px rgba(0, 0, 0, 0.02);
+                    .bg_svg {
+                        height: 30%;
+                       
+                        
+                    }
+                    &:hover {
+                        .bg_svg {
+                            height: 500%;
+                           
+                        }
+                    }
+                    // &::before {
+                    //     content: '';
+                    //     width: 100%;
+                    //     top: 0px;
+                    //     left: 0px;
+                    //     height: 2px;
+                    //     position: absolute;
+                    //     background: $white;
+                    // }
+                }
+                background: transparent;
+
+                &:hover {
+                    background: transparent;
+                    //background: white;
+                    color: $turquoise !important;
+                    //     &::after {
+                    //    width: 100%;
+                    //    transition: width 0.3s ease;
+                    //     }
+                }
+            }
+        }
+    }
+}

@@ -1,15 +1,16 @@
 {% set title = post.post_title %}
 {% set content = post.post_content %}
-{% set date_display = fn.get_the_date('d/m/Y', post.ID) %}
+{% set date_display = fn.get_the_date('d F Y', post.ID) %}
 {% set date_datetime =  fn.get_the_date('Y-m-d', post.ID) %}
 
 {% extends 'layout/base.twig' %}
 
 {% block main %}
-	<div class="container mt-5 pt-5">
-		<time datetime="{{date_datetime}}">Publié le {{date_display}}</time>
+	<div class="container single mt-5 pt-5">
+		<div class="columns">
+		<div class="infos"><time datetime="{{date_datetime}}">Publié le {{date_display}}</time></div>
+		</div>
 		<h1 class="title">{{title}}</h1>
-
-		<p>{{content|raw}}</p>
+		<p>{{content|raw|nl2br}}</p>
 	</div>
 {% endblock %}

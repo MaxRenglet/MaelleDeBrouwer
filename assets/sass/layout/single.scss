@@ -1,0 +1,17 @@
+.single {
+    .animation_header {
+        margin-top: -50px;
+    }
+    .container.single {
+        position: relative;
+        z-index: 50;
+        margin-top: 250px !important;
+        color: $black;
+        p {
+            font-size: 1.2rem;
+            line-height: 2rem;
+        }
+    }
+
+}
+
