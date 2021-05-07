@@ -5,6 +5,7 @@ import '@fortawesome/fontawesome-free/js/all.js';
 import './slick/slick.js';
 import './layout/reverted.js';
 import './layout/font_size.js';
+import './layout/single.js';
 // import Wave from './animation/wave.js';
 
 // const footer_anim = document.querySelector('.animation_footer');

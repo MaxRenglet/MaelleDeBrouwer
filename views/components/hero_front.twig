@@ -29,16 +29,16 @@
 	<div
 		class="hero-body">
 		{# <div class="bg_hero" style="background-image:url('{{image}}'); background-size:cover; background-position:center center;">
-						  </div> #}
+								  </div> #}
 		<div class="container has-text-centered mb-6">
-				{% if date_display %}
-					<div class="date">
+			{% if date_display %}
+				<div class="date">
 					<time datetime="{{date_datetime}}">{{date_display}}</time>
-					</div>
-					{% endif %}
+				</div>
+			{% endif %}
 			<div class="columns is-centered mb-6">
 				<div class="column is-6-widescreen is-6-desktop">
-					
+
 					{% if cats %}
 						<div class="cats">
 							{% for cat in cats %}
@@ -53,7 +53,7 @@
 						<div class="subtitle">
 							{{description|raw}}
 						</div>
-					{% endif %}		
+					{% endif %}
 					{% if tags %}
 						<div class="tags">
 							{% for tag in tags %}
@@ -63,11 +63,11 @@
 					{% endif %}
 
 					{% if reading_time %}
-					<div class="reading_time">
-					{{reading_time}}
-					</div>
+						<div class="reading_time">
+							{{reading_time}}
+						</div>
 					{% endif %}
-					
+
 				</div>
 			</div>
 		</div>

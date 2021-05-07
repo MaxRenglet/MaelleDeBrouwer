@@ -1,0 +1,33 @@
+{% set blog_title = fn.get_bloginfo( 'name' ) %}
+
+<section
+	class="hero is-primary is-medium">
+	<!-- Hero head: will stick at the top -->
+	<div class="hero-head">
+		<nav class="navbar">
+			<div class="columns is-justify-content-space-between">
+				<div class="navbar-brand">
+					<a class="navbar-item" href="{{fn.home_url()}}">
+						{{blog_title}}
+					</a>
+					<span class="navbar-burger" data-target="navbarMenuHeroA">
+						<span></span>
+						<span></span>
+						<span></span>
+					</span>
+				</div>
+				<div id="navbarMenuHeroA" class="navbar-menu">
+					<div class="navbar-end">
+						{{fn.menu_header('header')}}
+					</div>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+	<!-- Hero content: will be in the middle -->
+	
+	<!-- Hero footer: will stick at the bottom -->
+
+</section>
+<div class="animation_header">{% include '/components/svgs/' ~ random(1,10) ~ '.svg' %}</div>
