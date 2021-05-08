@@ -1,4 +1,8 @@
-<h1 class="title"><i class="far fa-newspaper"></i> Articles Récents</h1>
+{% set index = fn.get_permalink(fn.get_option( 'page_for_posts' )) %}
+
+<h1 class="title">
+	<a href="{{index}}"><i class="far fa-newspaper"></i>
+	Articles Récents</a></h1>
 <div class="columns is-multiline">
 	{% for key, post in posts %}
 		{% set img = fn.get_the_post_thumbnail_url(post.ID, 'post-thumbnail') %}
@@ -10,10 +14,8 @@
 		{% set tags = fn.get_the_tags(post.ID) %}
 		{% set cats = fn.get_the_category(post.ID) %}
 		<div class="column {{column}}">
-			<a href="{{fn.get_permalink(post.ID)}}">
 				{% include '/components/layout/card.twig' with {cats:cats, tags:tags,post:post, image: img, content:post.post_content, title:post.post_title, date:true} %}
-			</a>
 		</div>
 	{% endfor %}
 </div>
-{% include '/components/layout/btn.twig' with {link:'test', label:'Voir plus..'} %}
+{% include '/components/layout/btn.twig' with {link:index, label:'Voir plus..'} %}

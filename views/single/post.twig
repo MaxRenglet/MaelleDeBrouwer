@@ -36,7 +36,7 @@
 						<div class="cats">
 						<ul>
 							{% for cat in cats %}
-								<li class="title is-5">#{{cat.name}}</li>
+								<li class="title is-5"><a href="{{fn.get_term_link(cat,'category')}}">#{{cat.name}}</a></li>
 							{% endfor %}
 							</ul>
 						</div>
@@ -45,7 +45,7 @@
 						<div class="tags_single">
 						<ul>
 							{% for tag in tags %}
-									<li>{{tag.name}}</li>
+									<li><a href="{{fn.get_term_link(tag,'post_tag')}}">{{tag.name}}</a></li>
 							{% endfor %}
 							</ul>
 						</div>
@@ -97,7 +97,7 @@
 						<div class="cats">
 						<ul>
 							{% for cat in cats %}
-								<li class="title is-5">#{{cat.name}}</li>
+								<li class="title is-5"><a href="{{fn.get_term_link(cat,'category')}}">#{{cat.name}}</a></li>
 							{% endfor %}
 							</ul>
 						</div>
@@ -106,7 +106,7 @@
 						<div class="tags_single">
 						<ul>
 							{% for tag in tags %}
-									<li>{{tag.name}}</li>
+									<li><a href="{{fn.get_term_link(tag,'post_tag')}}">{{tag.name}}</a></li>
 							{% endfor %}
 							</ul>
 						</div>
@@ -127,7 +127,7 @@
 			<h1 class="title">Lastest Posts</h1>
 			<div class="columns cards is-multiline">
 
-				{% for key, post in posts %}
+				{% for key, post in related %}
 					{% set column = "is-4-widescreen is-6-desktop is-6-tablet is-12-mobile" %}
 					{% set img = fn.get_the_post_thumbnail_url(post.ID, 'post-thumbnail') %}
 					{% set tags = fn.get_the_tags(post.ID) %}
@@ -138,8 +138,9 @@
 						</a>
 					</div>
 				{% endfor %}
-
+			
 			</div>
+			{% include '/components/layout/btn.twig' with {link:'test', label:'Voir plus..'} %}
 		</section>
 	</div>
 {% endblock %}

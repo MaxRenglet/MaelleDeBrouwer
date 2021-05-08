@@ -1,0 +1,82 @@
+{% set title = term.name %}
+{% set description = term.description %}
+{% set count = term.count %}
+
+{% extends 'layout/base.twig' %}
+{% block headerNav %}
+
+	<section class="hero_single">
+		{% include '/components/hero.twig' %}
+	</section>
+{% endblock %}
+
+{% block main %}
+
+	<div class="container single">
+		<div class="columns header">
+			<div class="column is-8-desktop is-6-tablet is-12-mobile">
+				<h1 class="title">Tag :
+					{{title}}</h1>
+				{% if description %}
+					<div class="content">
+						{{description}}
+					</div>
+				{% endif %}
+
+			</div>
+		</div>
+
+		<section class="each">
+			<h1 class="title">News</h1>
+			<div class="columns is-multiline">
+				{% for post in news %}
+					{% set img = fn.get_the_post_thumbnail_url(post.ID, 'post-thumbnail') %}
+					{% set tags = fn.get_the_tags(post.ID) %}
+					{% set cats = fn.get_the_category(post.ID) %}
+					<div class="column is-3-desktop is-6-tablet is-12-mobile">
+						{% include '/components/layout/card_small.twig' with {cats:cats, tags:tags,post:post, image: img, content:post.post_content, title:post.post_title, date:true} %}
+					</div>
+				{% endfor %}
+			</div>
+            {% set index = fn.get_permalink(fn.get_option( 'page_for_news' )) %}
+			{% include '/components/layout/btn.twig' with {link:index, label:'Voir toutes les news..'} %}
+		</section>
+
+		<section class="each">
+			<h1 class="title">Articles</h1>
+			<div class="columns is-multiline">
+				{% for post in posts %}
+					{% set img = fn.get_the_post_thumbnail_url(post.ID, 'post-thumbnail') %}
+					{% set tags = fn.get_the_tags(post.ID) %}
+					{% set cats = fn.get_the_category(post.ID) %}
+					<div class="column is-3-desktop is-6-tablet is-12-mobile">
+						{% include '/components/layout/card_small.twig' with {cats:cats, tags:tags,post:post, image: img, content:post.post_content, title:post.post_title, date:true} %}
+					</div>
+				{% endfor %}
+
+
+			</div>
+			{% set index = fn.get_permalink(fn.get_option( 'page_for_posts' )) %}
+			{% include '/components/layout/btn.twig' with {link:index, label:'Voir tous les articles..'} %}
+		</section>
+
+		<section class="each">
+			<h1 class="title">Recettes</h1>
+			<div class="columns is-multiline">
+				{% for post in recettes %}
+					{% set img = fn.get_the_post_thumbnail_url(post.ID, 'post-thumbnail') %}
+					{% set tags = fn.get_the_tags(post.ID) %}
+					{% set cats = fn.get_the_category(post.ID) %}
+					<div class="column is-3-desktop is-6-tablet is-12-mobile">
+						{% include '/components/layout/card_small.twig' with {cats:cats, tags:tags,post:post, image: img, content:post.post_content, title:post.post_title, date:true} %}
+					</div>
+				{% endfor %}
+			</div>
+			{% set index = fn.get_permalink(fn.get_option( 'page_for_recettes' )) %}
+			{% include '/components/layout/btn.twig' with {link:index, label:'Voir toutes les recettes..'} %}
+		</section>
+
+	</div>
+
+
+{% endblock %}

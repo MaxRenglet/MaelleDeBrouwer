@@ -12,14 +12,14 @@ PostType::make('recettes', 'Recettes', 'recette')
         'menu_icon' => 'dashicons-food'
     ])->set();
 
-Taxonomy::make('recettes_tag', 'recettes', 'Tags (recettes)', 'Tag (recettes)')
-    ->set();
 
-Taxonomy::make('recettes_category', 'recettes', 'Catégories (recettes)', 'Catégorie (recettes)')
-    ->setArguments([
-        'hierarchical' => true,
-    ])
-    ->set();
+
+    add_action('init', 'recettes_tax');
+    function recettes_tax()
+    {
+        register_taxonomy_for_object_type('post_tag', 'recettes');
+        register_taxonomy_for_object_type('category', 'recettes');
+    };
 
 
     /**

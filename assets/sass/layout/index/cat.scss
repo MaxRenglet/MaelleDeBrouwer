@@ -1,0 +1,17 @@
+.archive.category {
+
+    .header {
+        margin-top: 100px;
+        position: relative;
+        z-index: 55;
+        margin-bottom: 150px;
+        .content {
+            color: $black;
+        }
+    }
+
+    .each {
+        margin-bottom: 150px;
+    }
+
+}

@@ -1,18 +1,18 @@
-<div class="card">
 
+<a href="{{fn.get_permalink(post.ID)}}">
+<div class="card">
 
 	{% if image %}
 		<div class="card-image">
-		<a href="{{fn.get_permalink(post.ID)}}">
+	
 			<figure class="image is-4by3">
 				<img src="{{image}}" alt="Placeholder image">
 			</figure>
-			</a>
+		
 		</div>
 	{% endif %}
 
 	<div class="card-content">
-
 
 		{% if date %}
 			<div class="dates has-text-right is-size-8 is-uppercase">
@@ -22,40 +22,21 @@
 					{{date_display}}</time>
 			</div>
 		{% endif %}
-		{% if cats %}
 
-			<div class="cats">
 
-				{% for cat in cats %}
-					<span><a href="{{fn.get_term_link(cat,'category')}}">#{{cat.name}}</a></span>
-				{% endfor %}
 
-			</div>
-		{% endif %}
 		<div class="title is-size-4 mt-2">
-		<a href="{{fn.get_permalink(post.ID)}}">
+
 			{{title}}
-			</a>
+	
 		</div>
 
-		<div class="content is-size-6">
-		<a href="{{fn.get_permalink(post.ID)}}">
-			<p>{{fn.wp_trim_words(content, 22, '...')|raw}}</p>
-			</a>
-		</div>
-
-
-		{% if tags %}
-			<div class="tags">
-				{% for tag in tags %}
-					<li><a href="{{fn.get_term_link(tag,'post_tag')}}">{{tag.name}}</a></li>
-				{% endfor %}
-			</div>
-		{% endif %}
 
 
 	</div>
 
 	<div class="card__bg">
 		{% include '/components/svgs/' ~ random(1,10) ~ '.svg' %}</div>
+        
 </div>
+</a>
