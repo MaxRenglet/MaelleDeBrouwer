@@ -16,6 +16,7 @@ Route::any('/', function ($post) {
         'numberposts'      => 5,
         'orderby'          => 'post_date',
         'order'            => 'DESC',
+
     );
     $lastest_post = get_posts($args);
 
@@ -24,6 +25,7 @@ Route::any('/', function ($post) {
         'numberposts'      => 5,
         'orderby'          => 'post_date',
         'order'            => 'DESC',
+
     );
     $lastest_news = get_posts($args);
 
@@ -32,6 +34,7 @@ Route::any('/', function ($post) {
         'numberposts'      => 6,
         'orderby'          => 'post_date',
         'order'            => 'DESC',
+
     );
     $lastest_recettes = get_posts($args);
 
@@ -64,6 +67,7 @@ Route::any('singular', ['news', function ($post) {
         'numberposts'      => 6,
         'orderby'          => 'post_date',
         'order'            => 'DESC',
+
         'tax_query' => array(
             'relation' => 'OR',
             array(
@@ -99,6 +103,7 @@ Route::any('singular', ['post', function ($post) {
         'numberposts'      => 3,
         'orderby'          => 'post_date',
         'order'            => 'DESC',
+
         'tax_query' => array(
             'relation' => 'OR',
             array(
@@ -121,25 +126,6 @@ Route::any('singular', ['post', function ($post) {
 
 
 
-Route::any('post-type-archive', ['recettes', function () {
-
-    $post = get_post(get_option( 'page_for_recettes' ));
-    return view('index.recettes', [
-        'post' => $post
-    ]);
-}]);
-
-// TODO : TAG archive page
-
-
-Route::any('post-type-archive', ['news', function () {
-
-    $post = get_post(get_option( 'page_for_news' ));
-    return view('index.news', [
-        'post' => $post
-    ]);
-}]);
-
 Route::any('category', function () {
     // get_terms($)
     $term = get_queried_object()->term_id;
@@ -150,6 +136,7 @@ Route::any('category', function () {
         'numberposts'      => -1,
         'orderby'          => 'post_date',
         'order'            => 'DESC',
+
         'tax_query' => array(
             'relation' => 'OR',
             array(
@@ -167,6 +154,7 @@ Route::any('category', function () {
         'numberposts'      => -1,
         'orderby'          => 'post_date',
         'order'            => 'DESC',
+
         'tax_query' => array(
             'relation' => 'OR',
             array(
@@ -184,6 +172,7 @@ Route::any('category', function () {
         'numberposts'      => -1,
         'orderby'          => 'post_date',
         'order'            => 'DESC',
+
         'tax_query' => array(
             'relation' => 'OR',
             array(
@@ -214,6 +203,7 @@ Route::any('tag', function () {
         'numberposts'      => -1,
         'orderby'          => 'post_date',
         'order'            => 'DESC',
+
         'tax_query' => array(
             'relation' => 'OR',
             array(
@@ -231,6 +221,7 @@ Route::any('tag', function () {
         'numberposts'      => -1,
         'orderby'          => 'post_date',
         'order'            => 'DESC',
+
         'tax_query' => array(
             'relation' => 'OR',
             array(
@@ -248,6 +239,7 @@ Route::any('tag', function () {
         'numberposts'      => -1,
         'orderby'          => 'post_date',
         'order'            => 'DESC',
+
         'tax_query' => array(
             'relation' => 'OR',
             array(
@@ -270,16 +262,109 @@ Route::any('tag', function () {
 });
 
 
+Route::any('post-type-archive', ['recettes', function () {
+
+    $page = get_post(get_option( 'page_for_recettes' ));
+    
+    $args = array(
+        'post_type'         => 'recettes',
+        'numberposts'      => -1,
+    );
+
+    $posts = get_posts($args);
+
+    $cats = [];
+    $tags = [];
+
+    foreach ($posts as $key => $post) {
+        $cats_all = get_the_terms($post, 'category');
+        $tags_all = get_the_terms($post, 'post_tag');
+        foreach ($cats_all as $key => $cat) {
+           $cats[$cat->term_id] = $cat;
+        }
+        foreach ($tags_all as $key => $tag) {
+            $tags[$tag->term_id] = $tag;
+         }
+    }
+
+ 
+
+    return view('index.recettes', [
+        'page' => $page,
+        'cats' => $cats,
+        'tags' => $tags,
+    ]);
+}]);
 
 
 
-// Route::any('blog', function () {
+Route::any('post-type-archive', ['news', function () {
 
-//     var_dump(get_taxonomies());
-// die();
+    $page = get_post(get_option( 'page_for_news' ));
+    
+    $args = array(
+        'post_type'         => 'news',
+        'numberposts'      => -1,
+    );
 
-//     $post = get_post(get_option( 'page_for_post' ));
-//     return view('index.posts', [
-//         'post' => $post
-//     ]);
-// });
+    $posts = get_posts($args);
+
+    $cats = [];
+    $tags = [];
+
+    foreach ($posts as $key => $post) {
+        $cats_all = get_the_terms($post, 'category');
+        $tags_all = get_the_terms($post, 'post_tag');
+        foreach ($cats_all as $key => $cat) {
+           $cats[$cat->term_id] = $cat;
+        }
+        foreach ($tags_all as $key => $tag) {
+            $tags[$tag->term_id] = $tag;
+         }
+    }
+
+ 
+
+    return view('index.news', [
+        'page' => $page,
+        'cats' => $cats,
+        'tags' => $tags,
+    ]);
+}]);
+
+
+
+Route::any('blog', function () {
+
+
+    $page = get_post(get_option( 'page_for_posts' ));
+    
+    $args = array(
+        'post_type'         => 'post',
+        'numberposts'      => -1,
+    );
+
+    $posts = get_posts($args);
+
+    $cats = [];
+    $tags = [];
+
+    foreach ($posts as $key => $post) {
+        $cats_all = get_the_terms($post, 'category');
+        $tags_all = get_the_terms($post, 'post_tag');
+        foreach ($cats_all as $key => $cat) {
+           $cats[$cat->term_id] = $cat;
+        }
+        foreach ($tags_all as $key => $tag) {
+            $tags[$tag->term_id] = $tag;
+         }
+    }
+
+ 
+
+    return view('index.posts', [
+        'page' => $page,
+        'cats' => $cats,
+        'tags' => $tags,
+    ]);
+});

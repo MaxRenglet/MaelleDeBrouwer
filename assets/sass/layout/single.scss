@@ -54,18 +54,21 @@
         @include from($widescreen) {
             display: none;
         }
+
         @include until($desktop) {
             display: none !important;
         }
+
         transition: all 0.3s ease;
 
         .test {
-            position: sticky; top: 50px;
+            position: sticky;
+            top: 50px;
             transition: all 0.3s ease;
         }
 
 
-        
+
     }
 
     transition:all 0.3s ease;
@@ -79,106 +82,54 @@
     }
 
 
-.tags_single {
-    li {
-        list-style: none;
-        display: inline-block;
-        border-radius: 5px;
-        margin: 5px;
-        border: 1px solid #e6e6e6;
-        font-size: 13px;
-        list-style: none;
-        padding: 5px 10px;
-        transition: all 0.3s ease;
-
-        &:hover {
-            border: 1px solid $turquoise;
-            background-color: $white;
-            color: $turquoise;
+    .tags_single {
+        li {
+            list-style: none;
+            display: inline-block;
+            border-radius: 5px;
+            margin: 5px;
+            border: 1px solid #e6e6e6;
+            font-size: 13px;
+            list-style: none;
+            padding: 5px 10px;
             transition: all 0.3s ease;
+
+            &:hover {
+                border: 1px solid $turquoise;
+                background-color: $white;
+                color: $turquoise;
+                transition: all 0.3s ease;
+            }
+        }
+
+        margin-bottom: 30px;
+    }
+
+    .reading_time {
+        span {
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0px;
+                bottom: -7px;
+                width: 100%;
+                background-color: $turquoise;
+                height: 1px;
+            }
         }
     }
 
-    margin-bottom: 30px;
-}
+    .related {
+        margin-top: 200px;
+    }
 
-.reading_time {
-    span {
-        position: relative;
-
-        &::after {
-            content: '';
-            position: absolute;
-            left: 0px;
-            bottom: -7px;
-            width: 100%;
-            background-color: $turquoise;
-            height: 1px;
-        }
+a {
+    color: $black;
+    &:hover {
+        color: $turquoise;
     }
 }
-
-//         font-size: 1.3rem;
-//         line-height: 2.8rem;
-
-
-// }
-// .column.box {
-//     padding: 70px;
-// }
-
-.related {
-    margin-top: 200px;
-}
-
-// .box {
-//     padding: 0px;
-//     overflow: hidden;
-//     background-color: white;
-// }
-
-// .box-image {
-//     padding: 0px;
-// }
-// .box-content {
-//     padding: 50px;
-// }
-
-
-// .date {
-//     text-align: right;
-//     margin-bottom: 50px;
-// }
-// img {
-//     width: 100%;
-// }
-
-// .single.box {
-//     position: relative;
-//     //border-radius: 30px;
-// }
-
-// .box-content {
-//     position: relative;
-//     z-index: 55;
-// }
-
-// .box__bg {
-//     position: absolute;
-//     bottom: -15px;
-//     width: 100%;
-//     height: 100%;
-//     z-index: 5;
-//     svg {
-//         width: 100%;
-//         height: 100%;
-//         path {
-//             width: 100%;
-//             height: 100%;
-//             fill:$recettes;
-//         }
-//     }
-// }
-
 
 }

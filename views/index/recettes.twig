@@ -1,12 +1,58 @@
-{% set title = post.post_title %}
-{% set content = post.post_content %}
+{% set title = page.post_title %}
+{% set content = page.post_content %}
+
 
 {% extends 'layout/base.twig' %}
 
+{% block headerNav %}
+
+	<section class="hero_single">
+		{% include '/components/hero.twig' %}
+	</section>
+{% endblock %}
+
 {% block main %}
-<div class="container">
-<h1 class="title">{{title}}</h1>
-</div>
+	<div class="container">
+		<div class="columns header">
+		<div class="column is-8-widescreen">
+			<h1 class="title">{{title}}</h1>
+			{% if content %}			
+			<div class="content">
+				<p>{{content|raw|nl2br}}</p>
+			</div>
+			{% endif %}
+			</div>
+		</div>
+		<section class="filters columns" data-cpt="recettes">
+
+			<div class="filter column is-3-widescreen">
+				<select class="each_filter category_filter" multiple="multiple">
+					<option></option>
+					{% for cat in cats %}
+						<option value="{{cat.term_id}}">{{cat.name}}</option>
+					{% endfor %}
+				</select>
+			</div>
 
 
+			<div class="filter column is-3-widescreen">
+				<select class="each_filter tag_filter" multiple="multiple">
+					<option></option>
+					{% for tag in tags %}
+						<option value="{{tag.term_id}}">{{tag.name}}</option>
+					{% endfor %}
+				</select>
+			</div>
+
+			<div class="filter column is-3-widescreen">
+				<select class="each_filter order_filter">
+					<option value="ASC">ASC</option>
+					<option value="DESC" selected>DESC</option>
+				</select>
+			</div>
+		</section>
+	</div>
+	<div class="container">
+		<div class="result"></div>
+	</div>
 {% endblock %}

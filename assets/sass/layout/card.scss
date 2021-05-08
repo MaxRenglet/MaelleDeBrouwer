@@ -53,17 +53,32 @@
         li {
             border-radius: 5px;
             margin: 5px;
-            border: 1px solid lighten($black, 90);
+            border: 1px solid #e6e6e6;
             font-size: 13px;
             list-style: none;
             padding: 5px 10px;
+            transition: all 0.3s ease;
+            &:hover {
+                transition: all 0.3s ease;
+                background-color: $turquoise;
+                //color: $white;
+                a {
+                    color: $white;
+                }
+            }
         }
     }
 
     .cats {
         margin-top: 20px;
-        span {
+        object {
             margin-right: 10px;
+            &:hover {
+                a {
+                    color: $black;
+                    transition: color 0.3s ease;
+                }
+            }
         }
     }
 

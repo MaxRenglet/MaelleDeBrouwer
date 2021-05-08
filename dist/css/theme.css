@@ -13222,6 +13222,11 @@ section .columns {
   fill: #f8e7de;
 }
 
+main.container-fluid {
+  position: relative;
+  z-index: 55;
+}
+
 .btn {
   overflow: hidden;
   position: relative;
@@ -13264,6 +13269,10 @@ section .columns {
 }
 
 .btn:hover a {
+  color: #f8f1ff;
+}
+
+.btn:hover a:hover {
   color: inherit;
 }
 
@@ -13359,18 +13368,33 @@ section .columns {
 .card .tags li {
   border-radius: 5px;
   margin: 5px;
-  border: 1px solid white;
+  border: 1px solid #e6e6e6;
   font-size: 13px;
   list-style: none;
   padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+.card .tags li:hover {
+  transition: all 0.3s ease;
+  background-color: #00d1b2;
+}
+
+.card .tags li:hover a {
+  color: #f8f1ff;
 }
 
 .card .cats {
   margin-top: 20px;
 }
 
-.card .cats span {
+.card .cats object {
   margin-right: 10px;
+}
+
+.card .cats object:hover a {
+  color: #363636;
+  transition: color 0.3s ease;
 }
 
 .card:hover .card__bg svg {
@@ -13619,6 +13643,14 @@ section .columns {
   margin-top: 200px;
 }
 
+.single a {
+  color: #363636;
+}
+
+.single a:hover {
+  color: #00d1b2;
+}
+
 .container-xl {
   margin-left: 0px;
   margin-right: 0px;
@@ -13656,5 +13688,50 @@ section .columns {
 
 .archive.category .each {
   margin-bottom: 150px;
+}
+
+.post-type-archive .container-fluid,
+.blog .container-fluid {
+  margin-top: 100px;
+  padding: 50px;
+}
+
+.post-type-archive .result,
+.blog .result {
+  margin-top: 150px;
+  min-height: 300px;
+}
+
+.post-type-archive .header,
+.blog .header {
+  margin-bottom: 50px;
+}
+
+.post-type-archive p,
+.blog p {
+  color: #363636;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  color: white;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+  height: 100%;
+  border-right: 1px solid #f8f1ff !important;
+  color: white !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  background-color: #00d1b2 !important;
+  border: 1px solid #f8f1ff !important;
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+  background-color: #00d1b2 !important;
+}
+
+.select2-results__option--selectable {
+  color: #363636;
 }
 

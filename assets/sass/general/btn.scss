@@ -30,7 +30,10 @@
     }
     &:hover {
         a {
-            color: inherit;
+            color: $white;
+            &:hover {
+                color: inherit;
+            }
         }
         border: 1px solid $turquoise ;
         box-shadow: $card-shadow;

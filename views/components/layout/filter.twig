@@ -1,0 +1,15 @@
+<div class="columns is-multiline">
+
+	{% for post in posts %}
+
+
+		{% set img = fn.get_the_post_thumbnail_url(post.ID, 'post-thumbnail') %}
+		{% set tags = fn.get_the_tags(post.ID) %}
+		{% set cats = fn.get_the_category(post.ID) %}
+		<div class="column is-3-desktop is-6-tablet is-12-mobile">
+			{% include '/components/layout/card_small.twig' with {date :true, image: img, content:post.post_content, title:post.post_title} %}
+		</div>
+
+	{% endfor %}
+
+</div>
