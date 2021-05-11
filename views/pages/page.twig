@@ -1,0 +1,20 @@
+{% set title = post.post_title %}
+{% set content = post.post_content %}
+
+{% set hero = fn.get_field('hero',post.ID) %}
+{% set image = hero.image.sizes.large %}
+{% set description = hero.description %}
+
+
+{% extends 'layout/base.twig' %}
+
+{% block headerNav %}
+
+	<section class="hero">
+		{% include '/components/hero.twig' with {title:title, description:description, image:image, hero:hero} %}
+	</section>
+{% endblock %}
+
+{% block main %}
+
+{% endblock %}

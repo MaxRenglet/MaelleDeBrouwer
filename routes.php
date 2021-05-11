@@ -398,3 +398,9 @@ Route::any('blog', function () {
         'tags' => $tags,
     ]);
 });
+
+Route::any('page', function ($post, $query) {
+    return view('pages.page', [
+        'page' => $post 
+    ]);
+});
