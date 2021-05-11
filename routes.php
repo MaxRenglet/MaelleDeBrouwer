@@ -48,14 +48,42 @@ Route::any('/', function ($post) {
 
 
 Route::any('singular', ['recettes', function ($post) {
+    $tags = get_the_terms($post, 'category');
+
+    $tags_id = [];
+    foreach ($tags as $key => $tag) {
+        array_push($tags_id, $tag->term_id);
+    }
+
+    $args = array(
+        'post_type'         => 'recettes',
+        'numberposts'      => 6,
+        'orderby'          => 'post_date',
+        'order'            => 'DESC',
+
+        'tax_query' => array(
+            'relation' => 'OR',
+            array(
+                'taxonomy' => 'category',
+                'field' => 'term_id',
+                'terms' => $tags_id
+            )
+        )
+    );
+
+    $related = get_posts($args);
+    $archive_link = get_permalink(get_post(get_option( 'page_for_recettes' )));
+
     return view('single.recettes', [
-        'post' => $post
+        'archive_link' => $archive_link,
+        'post' => $post,
+        'related' => $related
     ]);
 }]);
 
 Route::any('singular', ['news', function ($post) {
 
-    $tags = get_the_terms($post, 'post_tag');
+    $tags = get_the_terms($post, 'category');
 
     $tags_id = [];
     foreach ($tags as $key => $tag) {
@@ -64,14 +92,14 @@ Route::any('singular', ['news', function ($post) {
 
     $args = array(
         'post_type'         => 'post',
-        'numberposts'      => 6,
+        'numberposts'      => 8,
         'orderby'          => 'post_date',
         'order'            => 'DESC',
 
         'tax_query' => array(
             'relation' => 'OR',
             array(
-                'taxonomy' => 'post_tag',
+                'taxonomy' => 'category',
                 'field' => 'term_id',
                 'terms' => $tags_id
             )
@@ -100,7 +128,7 @@ Route::any('singular', ['post', function ($post) {
 
     $args = array(
         'post_type'         => 'post',
-        'numberposts'      => 3,
+        'numberposts'      => 4,
         'orderby'          => 'post_date',
         'order'            => 'DESC',
 
@@ -286,13 +314,15 @@ Route::any('post-type-archive', ['recettes', function () {
             $tags[$tag->term_id] = $tag;
          }
     }
+    
+    $count = count($posts);
 
- 
 
     return view('index.recettes', [
         'page' => $page,
         'cats' => $cats,
         'tags' => $tags,
+        'count' => $count
     ]);
 }]);
 

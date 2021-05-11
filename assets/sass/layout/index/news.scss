@@ -5,13 +5,20 @@
     }
 
     .result {
-        margin-top: 150px;
+        margin-top: 50px;
         min-height: 300px;
+        .count {
+            margin-bottom: 50px;
+        }
     }
 .header {
     margin-bottom: 50px;
 }
     p {
+        color: $black;
+    }
+
+    label {
         color: $black;
     }
 

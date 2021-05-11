@@ -124,17 +124,17 @@
 
 
 		<section class="related">
-			<h1 class="title">Lastest Posts</h1>
+			<h1 class="title">Plus de news</h1>
 			<div class="columns cards is-multiline">
 
 				{% for key, post in related %}
-					{% set column = "is-4-widescreen is-6-desktop is-6-tablet is-12-mobile" %}
+					{% set column = "is-3-widescreen is-6-desktop is-6-tablet is-12-mobile" %}
 					{% set img = fn.get_the_post_thumbnail_url(post.ID, 'post-thumbnail') %}
 					{% set tags = fn.get_the_tags(post.ID) %}
 					{% set cats = fn.get_the_category(post.ID) %}
 					<div class="column {{column}}">
 						<a href="{{fn.get_permalink(post.ID)}}">
-							{% include '/components/layout/card.twig' with {cats:cats, tags:tags,post:post, image: img, content:post.post_content, title:post.post_title, date:true} %}
+							{% include '/components/layout/card_small.twig' with {cats:cats, tags:tags,post:post, image: img, content:post.post_content, title:post.post_title, date:true} %}
 						</a>
 					</div>
 				{% endfor %}

@@ -15,7 +15,7 @@
 	<div class="container">
 		<div class="columns header">
 		<div class="column is-8-widescreen">
-			<h1 class="title">{{title}}</h1>
+			<h1 class="title"><i class="fas fa-carrot"></i> {{title}}</h1>
 			{% if content %}			
 			<div class="content">
 				<p>{{content|raw|nl2br}}</p>
@@ -53,6 +53,8 @@
 		</section>
 	</div>
 	<div class="container">
-		<div class="result"></div>
+		<div class="result">
+			{# <div class="count mt-6"><h1 class="title">{{count}} recettes (miam miam)</h1></div> #}
+		</div>
 	</div>
 {% endblock %}

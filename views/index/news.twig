@@ -15,7 +15,7 @@
 	<div class="container">
 		<div class="columns header">
 		<div class="column is-8-widescreen">
-			<h1 class="title">{{title}}</h1>
+			<h1 class="title"><i class="far fa-file-alt"></i> {{title}}</h1>
 			{% if content %}			
 			<div class="content">
 				<p>{{content|raw|nl2br}}</p>
@@ -26,6 +26,7 @@
 		<section class="filters columns" data-cpt="news">
 
 			<div class="filter column is-3-widescreen">
+			<label>Catégories</label>
 				<select class="each_filter category_filter" multiple="multiple">
 					<option></option>
 					{% for cat in cats %}
@@ -36,6 +37,7 @@
 
 
 			<div class="filter column is-3-widescreen">
+				<label>Tags</label>
 				<select class="each_filter tag_filter" multiple="multiple">
 					<option></option>
 					{% for tag in tags %}
@@ -45,9 +47,10 @@
 			</div>
 
 			<div class="filter column is-3-widescreen">
+				<label>Ordres (par dates)</label>
 				<select class="each_filter order_filter">
-					<option value="ASC">ASC</option>
-					<option value="DESC" selected>DESC</option>
+					<option value="ASC">Ascendant</option>
+					<option value="DESC" selected>Descendant</option>
 				</select>
 			</div>
 		</section>

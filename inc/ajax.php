@@ -59,10 +59,30 @@ Ajax::listen('filter', function () {
 
 
         $posts = get_posts($args);
+        $count = count($posts);
 
+        if($cpt == "recettes"){
+            $cpt = 'recette';
+        }
+
+        if($cpt == "post"){
+            $cpt = 'article';
+        }
+
+
+        if($count > 1 && $cpt != "news"){
+            $cpt = $cpt."s";
+        }
+
+        if($cpt == "news"){
+            $cpt = 'news';
+        }
+        
        if($posts){
         echo view('components.layout.filter', [
-            'posts' => $posts
+            'posts' => $posts,
+            'count' => $count,
+            'cpt' => $cpt
         ]);
        } else {
            echo "No results";
