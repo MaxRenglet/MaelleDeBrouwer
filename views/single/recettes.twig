@@ -124,7 +124,8 @@
 
 
 		<section class="related">
-			<h1 class="title">Plus de recettes</h1>
+
+			{% include '/components/layout/title.twig' with {link:archive_link, label:"Plus de recettes"} %}
 			<div class="columns cards is-multiline">
 
 				{% for key, post in related %}
@@ -140,7 +141,7 @@
 				{% endfor %}
 			
 			</div>
-			{% include '/components/layout/btn.twig' with {link:'test', label:'Voir plus..'} %}
+			{% include '/components/layout/btn.twig' with {link:archive_link, label:'Voir plus..'} %}
 		</section>
 	</div>
 {% endblock %}

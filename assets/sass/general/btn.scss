@@ -45,3 +45,29 @@
         }
     }
 }
+
+
+.m_title {
+a {
+    display: flex;
+    align-items: center;
+
+    .ico_before {
+        margin-right:20px;
+    }
+    .ico_after {
+        font-size: 25px;
+        margin-top: 7px;
+        margin-left: 15px;
+        transition: margin-left 0.3s ease;
+    }
+
+    &:hover {
+        .ico_after {
+            margin-left:30px;
+            transition: margin-left 0.3s ease;
+        }
+    }
+}
+
+}

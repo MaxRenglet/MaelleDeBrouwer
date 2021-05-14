@@ -1,10 +1,7 @@
 {% set index = fn.get_permalink(fn.get_option( 'page_for_recettes' )) %}
 
-<h1 class="title">
-	<a href="{{index}}">
-		<i class="fas fa-carrot"></i>
-		Recettes Récentes</a>
-</h1>
+
+{% include '/components/layout/title.twig' with {link:index, label:"Recettes Récentes", icon_before:"fas fa-carrot" } %}
 <div class="columns is-multiline">
 	{% for post in posts %}
 

@@ -13281,6 +13281,27 @@ main.container-fluid {
   transition: height 0.5s ease;
 }
 
+.m_title a {
+  display: flex;
+  align-items: center;
+}
+
+.m_title a .ico_before {
+  margin-right: 20px;
+}
+
+.m_title a .ico_after {
+  font-size: 25px;
+  margin-top: 7px;
+  margin-left: 15px;
+  transition: margin-left 0.3s ease;
+}
+
+.m_title a:hover .ico_after {
+  margin-left: 30px;
+  transition: margin-left 0.3s ease;
+}
+
 .hero.is-primary {
   color: #f8f1ff;
 }
@@ -13458,7 +13479,7 @@ main.container-fluid {
 
 .footer .content {
   background: #00d1b2;
-  padding: 100px 20px;
+  padding: 30px 20px;
   margin-top: -6px;
 }
 
@@ -13527,6 +13548,49 @@ main.container-fluid {
 .navbar .navbar-end a.navbar-item:hover {
   background: transparent;
   color: #00d1b2 !important;
+}
+
+.hero.is-primary .navbar-brand a.navbar-item {
+  background-color: transparent;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  line-height: 1.5rem;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 10px 25px;
+  transition: color 0.3s ease;
+}
+
+.hero.is-primary .navbar-brand a.navbar-item .title_bg {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  bottom: -3px;
+  left: 0px;
+}
+
+.hero.is-primary .navbar-brand a.navbar-item .title_bg svg {
+  height: 0px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  transition: height 0.6s ease;
+}
+
+.hero.is-primary .navbar-brand a.navbar-item .title_bg svg path {
+  fill: #f8f1ff;
+}
+
+.hero.is-primary .navbar-brand a.navbar-item:hover {
+  box-shadow: 0 0.5em 1em -0.125em rgba(0, 0, 0, 0.1), 0 0px 0 1px rgba(0, 0, 0, 0.02);
+  background: transparent;
+  color: #00d1b2 !important;
+  transition: color 0.3s ease;
+}
+
+.hero.is-primary .navbar-brand a.navbar-item:hover .title_bg svg {
+  height: 500px;
+  transition: height 0.5s ease;
 }
 
 .single {
@@ -13644,11 +13708,13 @@ main.container-fluid {
 }
 
 .single a {
-  color: #363636;
+  color: inherit;
+  transition: color 0.3s ease;
 }
 
 .single a:hover {
   color: #00d1b2;
+  transition: color 0.3s ease;
 }
 
 .container-xl {

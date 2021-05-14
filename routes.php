@@ -91,8 +91,8 @@ Route::any('singular', ['news', function ($post) {
     }
 
     $args = array(
-        'post_type'         => 'post',
-        'numberposts'      => 8,
+        'post_type'         => 'news',
+        'numberposts'      => 4,
         'orderby'          => 'post_date',
         'order'            => 'DESC',
 
@@ -107,24 +107,6 @@ Route::any('singular', ['news', function ($post) {
     );
 
     $related = get_posts($args);
-    $archive_link = get_permalink(get_post(get_option( 'page_for_news' )));
-
-    return view('single.news', [
-        'archive_link' => $archive_link,
-        'post' => $post,
-        'related' => $related
-    ]);
-}]);
-
-Route::any('singular', ['post', function ($post) {
-
-
-    $tags = get_the_terms($post, 'category');
-
-    $tags_id = [];
-    foreach ($tags as $key => $tag) {
-        array_push($tags_id, $tag->term_id);
-    }
 
     $args = array(
         'post_type'         => 'post',
@@ -142,12 +124,76 @@ Route::any('singular', ['post', function ($post) {
         )
     );
 
+    $related_post = get_posts($args);
+
+    $archive_link = get_permalink(get_post(get_option( 'page_for_news' )));
+    $archive_link_post = get_permalink(get_post(get_option( 'page_for_posts' )));
+
+    return view('single.news', [
+        'archive_link' => $archive_link,
+        'archive_link_post' => $archive_link_post,
+        'post' => $post,
+        'related' => $related,
+        'related_post' => $related_post
+    ]);
+}]);
+
+Route::any('singular', ['post', function ($post) {
+
+
+    $tags = get_the_terms($post, 'category');
+
+    $tags_id = [];
+    foreach ($tags as $key => $tag) {
+        array_push($tags_id, $tag->term_id);
+    }
+
+    $args = array(
+        'post_type'         => 'news',
+        'numberposts'      => 4,
+        'orderby'          => 'post_date',
+        'order'            => 'DESC',
+
+        'tax_query' => array(
+            'relation' => 'OR',
+            array(
+                'taxonomy' => 'category',
+                'field' => 'term_id',
+                'terms' => $tags_id
+            )
+        )
+    );
+
 
     $related = get_posts($args);
 
+    $args = array(
+        'post_type'         => 'post',
+        'numberposts'      => 4,
+        'orderby'          => 'post_date',
+        'order'            => 'DESC',
+
+        'tax_query' => array(
+            'relation' => 'OR',
+            array(
+                'taxonomy' => 'category',
+                'field' => 'term_id',
+                'terms' => $tags_id
+            )
+        )
+    );
+
+    $related_post = get_posts($args);
+
+
+    $archive_link = get_permalink(get_post(get_option( 'page_for_news' )));
+    $archive_link_post = get_permalink(get_post(get_option( 'page_for_posts' )));
 
     return view('single.post', [
+        'archive_link' => $archive_link,
+        'archive_link_post' => $archive_link_post,
         'post' => $post,
+        'related_post' => $related_post,
         'related' => $related
     ]);
 }]);

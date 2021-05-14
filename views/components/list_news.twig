@@ -1,10 +1,11 @@
 {% set index = fn.get_permalink(fn.get_option( 'page_for_news' )) %}
 
 <h1 class="title">
-<a href="{{index}}">
+{# <a href="{{index}}">
 	<i class="far fa-file-alt"></i>
 	News Récentes
-	</a></h1>
+	</a></h1> #}
+	{% include '/components/layout/title.twig' with {link:index, label:"News Récentes", icon_before:"far fa-file-alt" } %}
 <div class="columns is-multiline">
 	{% for post in posts %}
 

@@ -126,9 +126,11 @@
     }
 
 a {
-    color: $black;
+    color: inherit;
+    transition: color 0.3s ease;
     &:hover {
         color: $turquoise;
+        transition: color 0.3s ease;
     }
 }
 

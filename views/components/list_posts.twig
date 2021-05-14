@@ -1,8 +1,8 @@
 {% set index = fn.get_permalink(fn.get_option( 'page_for_posts' )) %}
 
 <h1 class="title">
-	<a href="{{index}}"><i class="far fa-newspaper"></i>
-	Articles Récents</a></h1>
+
+	{% include '/components/layout/title.twig' with {link:index, label:"Articles Récents", icon_before:"far fa-newspaper" } %}
 <div class="columns is-multiline">
 	{% for key, post in posts %}
 		{% set img = fn.get_the_post_thumbnail_url(post.ID, 'post-thumbnail') %}

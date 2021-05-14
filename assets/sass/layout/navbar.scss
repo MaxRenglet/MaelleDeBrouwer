@@ -3,6 +3,7 @@
     .columns {
         width: 100%;
     }
+
     .navbar-end {
 
         a {
@@ -11,11 +12,13 @@
             overflow: hidden;
             z-index: 5;
             background: transparent;
-            padding:1rem 2rem;
+            padding: 1rem 2rem;
             font-weight: bold;
+
             &:hover {
-                color:$turquoise;
+                color: $turquoise;
                 box-shadow: 0 0.5em 1em -0.125em rgba(0, 0, 0, 0.1), 0 0px 0 1px rgba(0, 0, 0, 0.02);
+
                 .bg_svg {
                     height: 600%;
                     transition: height 0.5s ease;
@@ -34,8 +37,9 @@
                 svg {
                     width: 100%;
                     height: 100%;
+
                     path {
-                        fill:$white;
+                        fill: $white;
                     }
                 }
             }
@@ -62,17 +66,20 @@
                 &.is-active {
                     background: transparent;
                     box-shadow: 0 0.5em 1em -0.125em rgba(0, 0, 0, 0.1), 0 0px 0 1px rgba(0, 0, 0, 0.02);
+
                     .bg_svg {
                         height: 30%;
-                       
-                        
+
+
                     }
+
                     &:hover {
                         .bg_svg {
                             height: 500%;
-                           
+
                         }
                     }
+
                     // &::before {
                     //     content: '';
                     //     width: 100%;
@@ -83,6 +90,7 @@
                     //     background: $white;
                     // }
                 }
+
                 background: transparent;
 
                 &:hover {
@@ -93,6 +101,50 @@
                     //    width: 100%;
                     //    transition: width 0.3s ease;
                     //     }
+                }
+            }
+        }
+    }
+}
+
+
+.hero.is-primary .navbar-brand {
+  
+    a.navbar-item {
+        background-color: transparent;
+        font-size: 1.5rem;
+        font-weight: bolder;
+        line-height: 1.5rem;
+        border-radius: 5px;
+        overflow: hidden;
+        padding: 10px 25px;
+        transition: color 0.3s ease;
+        .title_bg {
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            bottom: -3px;
+            left: 0px;
+            svg {
+                height: 0px;
+                width: 100%;
+                position: absolute;
+                bottom: 0px;
+                transition: height 0.6s ease;
+                path {
+                    fill:$white;
+                }
+            }
+        }
+        &:hover {
+            box-shadow: 0 0.5em 1em -0.125em rgba(0, 0, 0, 0.1), 0 0px 0 1px rgba(0, 0, 0, 0.02);
+            background: transparent;
+            color: $turquoise !important;
+            transition: color 0.3s ease;
+            .title_bg {
+                svg {
+                    height: 500px;
+                    transition: height 0.5s ease;
                 }
             }
         }
